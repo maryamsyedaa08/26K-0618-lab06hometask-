@@ -1,0 +1,54 @@
+#include<stdio.h>
+int main()
+{
+    int n;
+    int category;
+    int weight;
+    int rem;
+    int trackid;
+
+    printf("Enter the total number of containers:");
+    scanf("%d",&n);
+    for(int i=1;i<=n;i++)
+    {
+        printf("Enter your cargo category(1-3):\n1.general code\n2.hazardous material\n3.refrigerated goods\n");
+        scanf("%d",&category);
+        printf("Enter cargo weight in kg:");
+        scanf("%d",&weight);
+        switch(category) 
+        { case 1:
+            if(weight<=20000)
+            {
+                 printf("loaded\n");
+            }
+            else
+            {
+                 printf("not loaded\n");
+            }
+            break;
+            case 2:
+            if(weight<=15000&&i%2!=0)
+            {
+                 printf("loaded\n");
+            }
+            else{
+                 printf("not loaded\n");
+            }
+            break;
+            case 3:
+            if(weight<=18000)
+            {
+                 printf("loaded \n");
+            }
+            else
+            {
+                 printf("not loaded\n");
+            }
+            break;
+        }
+        rem=weight%97;
+        trackid=rem%100;
+        printf("tracking id is %d\n",trackid);
+    }
+
+}
