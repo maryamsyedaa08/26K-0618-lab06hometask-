@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main()
+{
+    int access, hour;
+    int lateNight;
+
+    while (1)
+    {
+        printf("Enter access number: ");
+        scanf("%d", &access);
+
+        if (access == 9999)
+            break;
+
+        printf("Enter current hour: ");
+        scanf("%d", &hour);
+
+        lateNight = (hour >= 22 || hour < 6);
+
+        printf("%s\n", lateNight ? "LATE NIGHT MODE" : "STANDARD MODE");
+
+        if (lateNight)
+        {
+            if (access & 8)
+                printf("Entry Granted\n");
+            else
+                printf("Entry Denied\n");
+        }
+        else
+        {
+            if (access & (1 | 2 | 4))
+                printf("Entry Granted\n");
+            else
+                printf("Entry Denied\n");
+        }
+
+        if (access & 4)
+            printf("Personal Trainer Access: YES\n");
+        else
+            printf("Personal Trainer Access: NO\n");
+    }
+
+    return 0;
+}
