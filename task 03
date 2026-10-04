@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+int main() 
+{
+    int no_std;
+    int marks1, marks2, marks3;
+    int avg;
+    int grade;
+
+    printf("Enter number of students: ");
+    scanf("%d", &no_std);
+
+    for (int i = 1; i == no_std; i++) 
+    {
+
+        printf("\nStudent %d\n", i);
+
+        printf("Enter marks in Subject 1:\n ");
+        scanf("%d", &marks1);
+
+        printf("Enter marks in Subject 2:\n ");
+        scanf("%d", &marks2);
+
+        printf("Enter marks in Subject 3: \n");
+        scanf("%d", &marks3);
+
+        avg = (marks1 + marks2 + marks3) / 3;
+
+        grade = avg / 10;
+
+        switch (grade) {
+            case 10:
+            case 9:
+                printf("Grade: A\n");
+                break;
+
+            case 8:
+                printf("Grade: B\n");
+                break;
+
+            case 7:
+                printf("Grade: C\n");
+                break;
+
+            case 6:
+                printf("Grade: D\n");
+                break;
+
+            default:
+                printf("Grade: F\n");
+        }
+
+        printf("Average: %d\n", avg);
+
+        printf("Result: %s\n",
+               (avg >= 60 && marks1 >= 40 && marks2 >= 40 && marks3 >= 40)
+               ? "Passed"
+               : "Failed");
+    }
+
+    return 0;
+}
